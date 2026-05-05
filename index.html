@@ -282,7 +282,7 @@
 
         /* ========== SECTIONS ========== */
         section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         section.dark-bg {
@@ -290,21 +290,24 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             color: var(--text-primary);
+            letter-spacing: -0.5px;
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-            max-width: 600px;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            max-width: 550px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 400;
+            line-height: 1.5;
         }
 
         /* ========== ABOUT SECTION ========== */
@@ -316,16 +319,23 @@
         }
 
         .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
             color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
         .about-text p {
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.98rem;
+            margin-bottom: 1.2rem;
             color: var(--text-secondary);
-            line-height: 1.8;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
         }
 
         .about-image {
@@ -349,7 +359,7 @@
 
         .skill-card {
             background: var(--bg-secondary);
-            padding: 2rem;
+            padding: 1.8rem;
             border-radius: 15px;
             border: 1px solid var(--border-color);
             text-align: center;
@@ -369,15 +379,18 @@
         }
 
         .skill-name {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: var(--text-primary);
+            letter-spacing: -0.2px;
         }
 
         .skill-desc {
             color: var(--text-tertiary);
-            font-size: 0.95rem;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            font-weight: 400;
         }
 
         /* ========== PROJECTS SECTION ========== */
@@ -394,6 +407,9 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
             cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -412,20 +428,26 @@
         }
 
         .project-content {
-            padding: 2rem;
+            padding: 1.6rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-title {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: var(--text-primary);
+            letter-spacing: -0.2px;
         }
 
         .project-desc {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            font-weight: 400;
         }
 
         .project-tags {
@@ -436,11 +458,11 @@
 
         .tag {
             display: inline-block;
-            padding: 0.4rem 1rem;
+            padding: 0.3rem 0.8rem;
             background: var(--bg-tertiary);
             color: var(--text-secondary);
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
@@ -471,14 +493,17 @@
         }
 
         .contact-details h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
             color: var(--text-primary);
+            font-weight: 600;
+            letter-spacing: -0.2px;
         }
 
         .contact-details p {
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            font-weight: 400;
         }
 
         .contact-form {
@@ -1462,14 +1487,8 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Sinh viên CNTT - Đồ họa kỹ thuật số</h3>
-                    <p>
-                        Tôi là một UI/UX designer và frontend developer với 1 năm kinh nghiệm trong lĩnh vực thiết kế website.
-                        Tôi tập trung vào việc tạo ra những giao diện người dùng hiện đại, sang trọng và dễ sử dụng.
-                    </p>
-                    <p>
-                        Với sự kết hợp giữa kiến thức thiết kế và kỹ năng lập trình, tôi có thể biến những ý tưởng thành những
-                        sản phẩm kỹ thuật số chất lượng cao. Định hướng của tôi là trở thành một designer/developer toàn năng.
-                    </p>
+                    <p>1 năm kinh nghiệm thiết kế website. Chuyên UI/UX và phát triển giao diện web.</p>
+                    <p>Kết hợp thiết kế đẹp với code chất lượng, tạo ra sản phẩm kỹ thuật số hoàn hảo.</p>
                 </div>
                 <div class="about-image">👨‍💻</div>
             </div>
@@ -1485,32 +1504,32 @@
                 <div class="skill-card">
                     <div class="skill-icon">🎨</div>
                     <div class="skill-name">UI/UX Design</div>
-                    <div class="skill-desc">Thiết kế giao diện và trải nghiệm người dùng từ wireframe đến prototype</div>
+                    <div class="skill-desc">Thiết kế giao diện & trải nghiệm người dùng</div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">💻</div>
-                    <div class="skill-name">Frontend Development</div>
-                    <div class="skill-desc">HTML, CSS, JavaScript - xây dựng website responsive và hiệu suất cao</div>
+                    <div class="skill-name">Frontend Dev</div>
+                    <div class="skill-desc">HTML, CSS, JavaScript - Web responsive</div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">📱</div>
                     <div class="skill-name">Mobile Design</div>
-                    <div class="skill-desc">Thiết kế ứng dụng di động với trải nghiệm tối ưu trên mọi thiết bị</div>
+                    <div class="skill-desc">Tối ưu cho tất cả thiết bị di động</div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">🎬</div>
-                    <div class="skill-name">Animation & Interaction</div>
-                    <div class="skill-desc">Tạo những hiệu ứng mượt mà, tăng cảm giác premium cho website</div>
+                    <div class="skill-name">Animation</div>
+                    <div class="skill-desc">Hiệu ứng mượt & micro-interactions</div>
                 </div>
                 <div class="skill-card">
-                    <div class="skill-icon">🔍</div>
-                    <div class="skill-name">Web Performance</div>
-                    <div class="skill-desc">Tối ưu hóa tốc độ tải và hiệu suất của website</div>
+                    <div class="skill-icon">⚡</div>
+                    <div class="skill-name">Performance</div>
+                    <div class="skill-desc">Tối ưu tốc độ & hiệu suất tải</div>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon">♿</div>
                     <div class="skill-name">Accessibility</div>
-                    <div class="skill-desc">Đảm bảo website dễ tiếp cận cho tất cả người dùng</div>
+                    <div class="skill-desc">Dễ tiếp cận cho tất cả người dùng</div>
                 </div>
             </div>
         </div>
@@ -1526,7 +1545,7 @@
                     <div class="project-image">🌐</div>
                     <div class="project-content">
                         <h3 class="project-title">E-Commerce Platform</h3>
-                        <p class="project-desc">Thiết kế và phát triển một nền tảng thương mại điện tử hiện đại với giao diện thân thiện.</p>
+                        <p class="project-desc">Nền tảng thương mại điện tử hiện đại với giao diện thân thiện</p>
                         <div class="project-tags">
                             <span class="tag">UI Design</span>
                             <span class="tag">Frontend</span>
@@ -1536,8 +1555,8 @@
                 <div class="project-card">
                     <div class="project-image">📱</div>
                     <div class="project-content">
-                        <h3 class="project-title">Mobile App Design</h3>
-                        <p class="project-desc">Thiết kế giao diện cho ứng dụng di động quản lý công việc cá nhân.</p>
+                        <h3 class="project-title">Mobile App UI</h3>
+                        <p class="project-desc">Ứng dụng di động quản lý công việc cá nhân</p>
                         <div class="project-tags">
                             <span class="tag">Mobile</span>
                             <span class="tag">Prototype</span>
@@ -1547,8 +1566,8 @@
                 <div class="project-card">
                     <div class="project-image">🎯</div>
                     <div class="project-content">
-                        <h3 class="project-title">Marketing Website</h3>
-                        <p class="project-desc">Website tiếp thị với animation mượt và UX tối ưu cho conversion cao.</p>
+                        <h3 class="project-title">Marketing Web</h3>
+                        <p class="project-desc">Website tiếp thị với animation mượt và UX conversion cao</p>
                         <div class="project-tags">
                             <span class="tag">Website</span>
                             <span class="tag">Animation</span>
