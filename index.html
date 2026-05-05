@@ -7,7 +7,7 @@
     <style>
         /* CSS Variables for Themes */
         :root {
-            --bg-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-color: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --text-color: #ffffff;
             --secondary-bg: rgba(255, 255, 255, 0.1);
             --accent-color: #ffffff;
@@ -18,10 +18,10 @@
         }
 
         .dark {
-            --bg-color: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            --bg-color: linear-gradient(135deg, #2c5aa0 0%, #16a085 100%);
             --text-color: #ecf0f1;
             --secondary-bg: rgba(255, 255, 255, 0.05);
-            --accent-color: #3498db;
+            --accent-color: #4facfe;
             --hover-bg: rgba(255, 255, 255, 0.1);
             --card-bg: rgba(255, 255, 255, 0.05);
             --border-color: rgba(255, 255, 255, 0.1);
@@ -467,11 +467,33 @@
             }
         }
 
-        /* Apple-style staggered animations */
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Professional slide animations */
         .animate-fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .animate-fade-in.animate {
@@ -481,8 +503,8 @@
 
         .animate-fade-in-left {
             opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateX(-60px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .animate-fade-in-left.animate {
@@ -492,8 +514,8 @@
 
         .animate-fade-in-right {
             opacity: 0;
-            transform: translateX(20px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateX(60px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .animate-fade-in-right.animate {
@@ -502,12 +524,25 @@
         }
 
         .animate-scale {
-            transform: scale(0.95);
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+            transform: scale(0.7) translateY(20px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .animate-scale.animate {
-            transform: scale(1);
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .animate-slide-up {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .animate-slide-up.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Parallax effect for hero */
@@ -523,7 +558,19 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1) 0%, rgba(0, 242, 254, 0.1) 100%);
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(79, 172, 254, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(0, 242, 254, 0.15) 0%, transparent 50%);
             z-index: -1;
         }
 
@@ -831,14 +878,14 @@
         <div class="container">
             <h2 class="animate-fade-in">Kinh nghiệm</h2>
             <div class="timeline">
-                <div class="timeline-item animate-fade-in-left">
+                <div class="timeline-item animate-slide-up">
                     <div class="timeline-content">
                         <div class="timeline-year">2023 - Hiện tại</div>
                         <h3>Sinh viên CNTT - Đồ họa kỹ thuật số</h3>
                         <p>Học tập và thực hành các kỹ năng thiết kế và phát triển web.</p>
                     </div>
                 </div>
-                <div class="timeline-item animate-fade-in-right">
+                <div class="timeline-item animate-slide-up">
                     <div class="timeline-content">
                         <div class="timeline-year">2022 - 2023</div>
                         <h3>Freelance Web Designer</h3>
@@ -971,7 +1018,7 @@
             alert('Cảm ơn bạn đã liên hệ! (Đây là demo, form chưa được xử lý)');
         });
 
-        // Apple-style scroll animations
+        // Professional scroll animations with staggered effects
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -980,8 +1027,17 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    // Add staggered delay for multiple elements
-                    const delay = index * 100; // 100ms delay between elements
+                    // Add staggered delay for multiple elements in the same section
+                    const siblings = Array.from(entry.target.parentNode.children).filter(child =>
+                        child.classList.contains('animate-fade-in') ||
+                        child.classList.contains('animate-fade-in-left') ||
+                        child.classList.contains('animate-fade-in-right') ||
+                        child.classList.contains('animate-scale') ||
+                        child.classList.contains('animate-slide-up')
+                    );
+                    const siblingIndex = siblings.indexOf(entry.target);
+                    const delay = siblingIndex * 200; // 200ms delay between siblings
+
                     setTimeout(() => {
                         entry.target.classList.add('animate');
                     }, delay);
@@ -990,20 +1046,27 @@
         }, observerOptions);
 
         // Observe all animated elements
-        document.querySelectorAll('.animate-fade-in, .animate-fade-in-left, .animate-fade-in-right, .animate-scale').forEach(el => {
+        document.querySelectorAll('.animate-fade-in, .animate-fade-in-left, .animate-fade-in-right, .animate-scale, .animate-slide-up').forEach(el => {
             observer.observe(el);
         });
 
-        // Parallax effect for hero section
+        // Enhanced parallax effect for hero section
         let lastScrollY = window.scrollY;
         const hero = document.querySelector('.hero');
+        const heroContent = document.querySelector('.hero .container');
 
         function updateParallax() {
             const scrollY = window.scrollY;
-            const rate = scrollY * -0.5;
+            const rate = scrollY * -0.3; // Slower parallax for more professional feel
+            const contentRate = scrollY * 0.1; // Subtle content movement
+
             if (hero) {
                 hero.style.transform = `translateY(${rate}px)`;
             }
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${contentRate}px)`;
+            }
+
             lastScrollY = scrollY;
             requestAnimationFrame(updateParallax);
         }
@@ -1011,16 +1074,23 @@
         // Start parallax animation
         requestAnimationFrame(updateParallax);
 
-        // Header background on scroll
+        // Smooth header transition on scroll
+        let headerScrollY = 0;
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > 100) {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
                 header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
             } else {
                 header.style.background = 'var(--secondary-bg)';
                 header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = 'none';
             }
+
+            headerScrollY = currentScrollY;
         });
 
         // Performance optimization: throttle scroll events
@@ -1028,7 +1098,6 @@
         window.addEventListener('scroll', () => {
             if (!ticking) {
                 requestAnimationFrame(() => {
-                    // Update parallax and header background
                     ticking = false;
                 });
                 ticking = true;
