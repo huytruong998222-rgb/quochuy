@@ -961,76 +961,113 @@
         }
 
         .ui-project-card {
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--glass-light), rgba(255, 255, 255, 0.02));
+            background: linear-gradient(135deg, var(--glass-light), rgba(255, 255, 255, 0.03));
             border: 2px solid var(--glass-border);
-            border-radius: 16px;
-            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            backdrop-filter: blur(25px);
             transition: all var(--transition-normal);
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            padding: 0;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
         }
 
         .ui-project-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(0, 217, 255, 0.15));
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 215, 0, 0.1), rgba(255, 0, 110, 0.1));
             opacity: 0;
             transition: opacity var(--transition-normal);
-            z-index: -1;
+            z-index: 1;
+            border-radius: 20px;
+        }
+
+        .ui-project-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold), var(--accent-pink));
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+            z-index: 2;
+            border-radius: 20px;
+            padding: 2px;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
         }
 
         .ui-project-card:hover::before {
             opacity: 1;
         }
 
+        .ui-project-card:hover::after {
+            opacity: 1;
+        }
+
         .ui-project-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--accent-gold);
-            box-shadow: var(--shadow-lg), var(--glow-gold);
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: var(--shadow-lg), 0 0 40px rgba(0, 217, 255, 0.2);
         }
 
         .ui-project-image {
             width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0, 217, 255, 0.1));
-            border-radius: 8px;
+            height: 240px;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(255, 215, 0, 0.1));
+            border-radius: 18px 18px 0 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 4rem;
             position: relative;
             overflow: hidden;
+            transition: all var(--transition-normal);
         }
 
         .ui-project-image::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), transparent);
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.3), rgba(255, 215, 0, 0.3));
             opacity: 0;
             transition: opacity var(--transition-normal);
+            z-index: 1;
+        }
+
+        .ui-project-card:hover .ui-project-image {
+            transform: scale(1.05);
         }
 
         .ui-project-card:hover .ui-project-image::before {
             opacity: 1;
         }
 
+        .ui-project-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 3;
+        }
+
         .ui-project-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 0.8rem;
+            line-height: 1.3;
         }
 
         .ui-project-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.6;
             margin-bottom: 1.2rem;
+            flex: 1;
         }
 
         .ui-project-tags {
@@ -1040,14 +1077,23 @@
         }
 
         .ui-project-tag {
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 0.9rem;
             background: var(--glass-light);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            border-radius: 25px;
             font-size: 0.75rem;
-            color: var(--accent-gold);
+            color: var(--accent-cyan);
             font-weight: 500;
             transition: all var(--transition-fast);
+            backdrop-filter: blur(10px);
+        }
+
+        .ui-project-card:hover .ui-project-tag {
+            background: var(--accent-cyan);
+            color: var(--bg-primary);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
         }
 
         .ui-project-tag:hover {
@@ -1898,79 +1944,91 @@
             <div class="ui-projects-grid">
                 <div class="ui-project-card reveal">
                     <div class="ui-project-image">🛒</div>
-                    <div class="ui-project-title">E-Commerce Platform</div>
-                    <div class="ui-project-desc">
-                        Nền tảng thương mại điện tử với UX tối ưu cho conversion rate cao
-                    </div>
-                    <div class="ui-project-tags">
-                        <span class="ui-project-tag">UI Design</span>
-                        <span class="ui-project-tag">E-commerce</span>
-                        <span class="ui-project-tag">React</span>
+                    <div class="ui-project-content">
+                        <div class="ui-project-title">E-Commerce Platform</div>
+                        <div class="ui-project-desc">
+                            Nền tảng thương mại điện tử với UX tối ưu cho conversion rate cao, thiết kế responsive và trải nghiệm mua sắm mượt mà.
+                        </div>
+                        <div class="ui-project-tags">
+                            <span class="ui-project-tag">UI Design</span>
+                            <span class="ui-project-tag">E-commerce</span>
+                            <span class="ui-project-tag">React</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="ui-project-card reveal">
                     <div class="ui-project-image">📱</div>
-                    <div class="ui-project-title">Mobile Banking App</div>
-                    <div class="ui-project-desc">
-                        Ứng dụng ngân hàng di động với giao diện an toàn và dễ sử dụng
-                    </div>
-                    <div class="ui-project-tags">
-                        <span class="ui-project-tag">Mobile UI</span>
-                        <span class="ui-project-tag">Fintech</span>
-                        <span class="ui-project-tag">Security</span>
-                    </div>
-                </div>
-
-                <div class="ui-project-card reveal">
-                    <div class="ui-project-image">🎯</div>
-                    <div class="ui-project-title">SaaS Dashboard</div>
-                    <div class="ui-project-desc">
-                        Dashboard quản lý doanh nghiệp với data visualization đẹp mắt
-                    </div>
-                    <div class="ui-project-tags">
-                        <span class="ui-project-tag">Dashboard</span>
-                        <span class="ui-project-tag">SaaS</span>
-                        <span class="ui-project-tag">Analytics</span>
+                    <div class="ui-project-content">
+                        <div class="ui-project-title">Mobile Banking App</div>
+                        <div class="ui-project-desc">
+                            Ứng dụng ngân hàng di động với giao diện an toàn, dễ sử dụng và trải nghiệm người dùng vượt trội trong lĩnh vực fintech.
+                        </div>
+                        <div class="ui-project-tags">
+                            <span class="ui-project-tag">Mobile UI</span>
+                            <span class="ui-project-tag">Fintech</span>
+                            <span class="ui-project-tag">Security</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="ui-project-card reveal">
-                    <div class="ui-project-image">📚</div>
-                    <div class="ui-project-title">Learning Platform</div>
-                    <div class="ui-project-desc">
-                        Nền tảng học trực tuyến với UX tập trung vào trải nghiệm học tập
-                    </div>
-                    <div class="ui-project-tags">
-                        <span class="ui-project-tag">Education</span>
-                        <span class="ui-project-tag">UX</span>
-                        <span class="ui-project-tag">Interactive</span>
-                    </div>
-                </div>
-
-                <div class="ui-project-card reveal">
-                    <div class="ui-project-image">🏥</div>
-                    <div class="ui-project-title">Healthcare Portal</div>
-                    <div class="ui-project-desc">
-                        Cổng thông tin y tế với giao diện thân thiện và dễ tiếp cận
-                    </div>
-                    <div class="ui-project-tags">
-                        <span class="ui-project-tag">Healthcare</span>
-                        <span class="ui-project-tag">Accessibility</span>
-                        <span class="ui-project-tag">Portal</span>
+                    <div class="ui-project-image">👔</div>
+                    <div class="ui-project-content">
+                        <div class="ui-project-title">Corporate Uniform Design System</div>
+                        <div class="ui-project-desc">
+                            Hệ thống thiết kế đồng phục doanh nghiệp toàn diện, từ concept đến production, đảm bảo tính nhất quán và chuyên nghiệp.
+                        </div>
+                        <div class="ui-project-tags">
+                            <span class="ui-project-tag">Uniform Design</span>
+                            <span class="ui-project-tag">Corporate</span>
+                            <span class="ui-project-tag">Branding</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="ui-project-card reveal">
-                    <div class="ui-project-image">🍽️</div>
-                    <div class="ui-project-title">Food Delivery App</div>
-                    <div class="ui-project-desc">
-                        Ứng dụng giao đồ ăn với UX tối ưu cho trải nghiệm đặt hàng nhanh
+                    <div class="ui-project-image">🎨</div>
+                    <div class="ui-project-content">
+                        <div class="ui-project-title">Adobe Illustrator Brand Identity</div>
+                        <div class="ui-project-desc">
+                            Thiết kế nhận diện thương hiệu chuyên nghiệp sử dụng Adobe Illustrator, tạo ra logo và visual identity độc đáo cho doanh nghiệp.
+                        </div>
+                        <div class="ui-project-tags">
+                            <span class="ui-project-tag">Illustrator</span>
+                            <span class="ui-project-tag">Branding</span>
+                            <span class="ui-project-tag">Logo Design</span>
+                        </div>
                     </div>
-                    <div class="ui-project-tags">
-                        <span class="ui-project-tag">Mobile</span>
-                        <span class="ui-project-tag">Food</span>
-                        <span class="ui-project-tag">UX</span>
+                </div>
+
+                <div class="ui-project-card reveal">
+                    <div class="ui-project-image">🖼️</div>
+                    <div class="ui-project-content">
+                        <div class="ui-project-title">Adobe Photoshop Fashion Mockups</div>
+                        <div class="ui-project-desc">
+                            Mockup thời trang cao cấp sử dụng Adobe Photoshop, tạo ra hình ảnh sản phẩm chuyên nghiệp cho các bộ sưu tập thời trang.
+                        </div>
+                        <div class="ui-project-tags">
+                            <span class="ui-project-tag">Photoshop</span>
+                            <span class="ui-project-tag">Fashion</span>
+                            <span class="ui-project-tag">Mockup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-project-card reveal">
+                    <div class="ui-project-image">📱</div>
+                    <div class="ui-project-content">
+                        <div class="ui-project-title">Mobile App UI Design</div>
+                        <div class="ui-project-desc">
+                            Thiết kế giao diện ứng dụng di động hiện đại với UX/UI tối ưu, tập trung vào trải nghiệm người dùng và tính thẩm mỹ cao.
+                        </div>
+                        <div class="ui-project-tags">
+                            <span class="ui-project-tag">Mobile UI</span>
+                            <span class="ui-project-tag">UX Design</span>
+                            <span class="ui-project-tag">App Design</span>
+                        </div>
                     </div>
                 </div>
             </div>
