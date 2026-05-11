@@ -847,6 +847,14 @@
             transition: all var(--transition-normal);
         }
 
+        .uniform-project-image img,
+        .ui-project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .uniform-project-card:hover .uniform-project-image,
         .ui-project-card:hover .ui-project-image {
             transform: scale(1.05);
@@ -1419,7 +1427,9 @@
 
             <div class="uniform-projects-grid">
                 <div class="uniform-project-card reveal">
-                    <div class="uniform-project-image">🏢</div>
+                    <div class="uniform-project-image">
+                        <img src="aloca one.png" alt="Đồng phục doanh nghiệp" />
+                    </div>
                     <div class="uniform-project-content">
                         <h3 class="uniform-project-title">Đồng phục doanh nghiệp</h3>
                         <p class="uniform-project-desc">
