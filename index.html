@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0e27">
-    <title>Quốc Huy | Uniform Designer & UX/UI Developer</title>
+    <title>Trương Quốc Huy | Nhà thiết kế đồng phục & Nhà phát triển UI/UX</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -530,6 +530,73 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .hero-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 520px;
+            padding: 1.4rem 1.6rem;
+            background: var(--glass-light);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .avatar-frame {
+            width: 104px;
+            height: 104px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 28px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(0, 217, 255, 0.18);
+        }
+
+        .avatar-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.35), rgba(128, 0, 255, 0.35));
+            opacity: 0.28;
+            mix-blend-mode: screen;
+        }
+
+        .avatar-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.1;
+        }
+
+        .profile-role {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            font-weight: 700;
         }
 
         .hero-description {
@@ -1233,16 +1300,24 @@
     <section id="hero" class="hero">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-profile">
+                    <div class="avatar-frame">
+                        <img class="avatar-image" src="https://via.placeholder.com/420x520/001832/ffffff?text=Tr%C6%B0%C6%A1ng+Qu%E1%BB%91c+Huy" alt="Ảnh đại diện Trương Quốc Huy">
+                    </div>
+                    <div class="profile-details">
+                        <div class="profile-name">Trương Quốc Huy</div>
+                        <div class="profile-role">Nhà thiết kế đồng phục & Nhà phát triển UI/UX</div>
+                    </div>
+                </div>
                 <div class="hero-subtitle">
-                    <span>Uniform Designer & UX/UI Developer</span>
+                    <span>Nhà thiết kế đồng phục & Nhà phát triển UI/UX</span>
                 </div>
                 <h1 class="hero-title">
                     Thiết kế <span class="highlight">đồng phục</span> chuyên nghiệp<br>
-                    Phát triển trải nghiệm người dùng xuất sắc
+                    Phát triển giao diện người dùng hiện đại
                 </h1>
                 <p class="hero-description">
-                    Tôi là Quốc Huy, chuyên gia thiết kế đồng phục và phát triển giao diện người dùng.
-                    Kết hợp giữa nghệ thuật thiết kế và công nghệ để tạo ra những sản phẩm chất lượng cao.
+                    Tôi là Trương Quốc Huy, có 1 năm kinh nghiệm trong lĩnh vực thiết kế, chuyên về thiết kế đồng phục và phát triển giao diện UI/UX hiện đại, mang đến giải pháp sáng tạo và trải nghiệm người dùng hiệu quả.
                 </p>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -1250,7 +1325,7 @@
                         <span class="stat-label">Dự án hoàn thành</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">3+</span>
+                        <span class="stat-number">1+</span>
                         <span class="stat-label">Năm kinh nghiệm</span>
                     </div>
                     <div class="stat-item">
@@ -1264,11 +1339,11 @@
                 </div>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn">Liên hệ ngay</a>
-                    <a href="#uniform" class="btn btn-secondary">Xem portfolio</a>
+                    <a href="#uniform" class="btn btn-secondary">Xem dự án</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://via.placeholder.com/400x500/00d9ff/ffffff?text=Portfolio+Image" alt="Quốc Huy - Uniform Designer">
+                <img src="https://via.placeholder.com/420x520/001832/ffffff?text=Tr%C6%B0%C6%A1ng+Qu%E1%BB%91c+Huy" alt="Trương Quốc Huy - Nhà thiết kế đồng phục và UI/UX">
             </div>
         </div>
     </section>
@@ -1294,35 +1369,35 @@
                 </div>
                 <div class="skill-card reveal">
                     <div class="skill-icon">🎨</div>
-                    <h3 class="skill-title">Graphic Design</h3>
+                    <h3 class="skill-title">Thiết kế đồ họa</h3>
                     <p class="skill-description">
                         Sử dụng Adobe Illustrator và Photoshop để tạo ra các thiết kế đồ họa ấn tượng và chuyên nghiệp.
                     </p>
                 </div>
                 <div class="skill-card reveal">
                     <div class="skill-icon">🖥️</div>
-                    <h3 class="skill-title">UI/UX Design</h3>
+                    <h3 class="skill-title">Thiết kế UI/UX</h3>
                     <p class="skill-description">
                         Thiết kế giao diện người dùng trực quan và trải nghiệm người dùng tối ưu cho các ứng dụng web/mobile.
                     </p>
                 </div>
                 <div class="skill-card reveal">
                     <div class="skill-icon">💻</div>
-                    <h3 class="skill-title">Frontend Development</h3>
+                    <h3 class="skill-title">Phát triển Frontend</h3>
                     <p class="skill-description">
                         Phát triển giao diện người dùng với HTML, CSS, JavaScript và các framework hiện đại.
                     </p>
                 </div>
                 <div class="skill-card reveal">
                     <div class="skill-icon">📱</div>
-                    <h3 class="skill-title">Mobile UI Design</h3>
+                    <h3 class="skill-title">Thiết kế giao diện di động</h3>
                     <p class="skill-description">
                         Thiết kế giao diện di động responsive và thân thiện với người dùng trên mọi thiết bị.
                     </p>
                 </div>
                 <div class="skill-card reveal">
                     <div class="skill-icon">🚀</div>
-                    <h3 class="skill-title">Branding</h3>
+                    <h3 class="skill-title">Xây dựng thương hiệu</h3>
                     <p class="skill-description">
                         Xây dựng nhận diện thương hiệu toàn diện từ logo, màu sắc đến trải nghiệm thương hiệu.
                     </p>
@@ -1331,7 +1406,7 @@
         </div>
     </section>
 
-    <!-- Uniform Projects Section -->
+    <!-- Dự án đồng phục -->
     <section id="uniform" class="reveal">
         <div class="container">
             <div class="section-header">
@@ -1346,14 +1421,14 @@
                 <div class="uniform-project-card reveal">
                     <div class="uniform-project-image">🏢</div>
                     <div class="uniform-project-content">
-                        <h3 class="uniform-project-title">Corporate Uniform</h3>
+                        <h3 class="uniform-project-title">Đồng phục doanh nghiệp</h3>
                         <p class="uniform-project-desc">
                             Đồng phục doanh nghiệp chuyên nghiệp cho công ty công nghệ, thiết kế hiện đại và thoải mái.
                         </p>
                         <div class="uniform-project-tags">
-                            <span class="uniform-project-tag">Corporate</span>
-                            <span class="uniform-project-tag">Professional</span>
-                            <span class="uniform-project-tag">Modern</span>
+                            <span class="uniform-project-tag">Doanh nghiệp</span>
+                            <span class="uniform-project-tag">Chuyên nghiệp</span>
+                            <span class="uniform-project-tag">Hiện đại</span>
                         </div>
                     </div>
                 </div>
@@ -1361,14 +1436,14 @@
                 <div class="uniform-project-card reveal">
                     <div class="uniform-project-image">🏥</div>
                     <div class="uniform-project-content">
-                        <h3 class="uniform-project-title">Healthcare Uniform</h3>
+                        <h3 class="uniform-project-title">Đồng phục y tế</h3>
                         <p class="uniform-project-desc">
                             Đồng phục y tế với thiết kế an toàn, dễ chịu và chuyên nghiệp cho nhân viên bệnh viện.
                         </p>
                         <div class="uniform-project-tags">
-                            <span class="uniform-project-tag">Healthcare</span>
-                            <span class="uniform-project-tag">Safety</span>
-                            <span class="uniform-project-tag">Comfort</span>
+                            <span class="uniform-project-tag">Y tế</span>
+                            <span class="uniform-project-tag">An toàn</span>
+                            <span class="uniform-project-tag">Thoải mái</span>
                         </div>
                     </div>
                 </div>
@@ -1376,14 +1451,14 @@
                 <div class="uniform-project-card reveal">
                     <div class="uniform-project-image">🏨</div>
                     <div class="uniform-project-content">
-                        <h3 class="uniform-project-title">Hotel Staff Uniform</h3>
+                        <h3 class="uniform-project-title">Đồng phục khách sạn</h3>
                         <p class="uniform-project-desc">
                             Đồng phục nhân viên khách sạn sang trọng, tạo ấn tượng tốt với khách hàng và đối tác.
                         </p>
                         <div class="uniform-project-tags">
-                            <span class="uniform-project-tag">Hospitality</span>
-                            <span class="uniform-project-tag">Luxury</span>
-                            <span class="uniform-project-tag">Service</span>
+                            <span class="uniform-project-tag">Khách sạn</span>
+                            <span class="uniform-project-tag">Sang trọng</span>
+                            <span class="uniform-project-tag">Dịch vụ</span>
                         </div>
                     </div>
                 </div>
@@ -1391,14 +1466,14 @@
                 <div class="uniform-project-card reveal">
                     <div class="uniform-project-image">🏫</div>
                     <div class="uniform-project-content">
-                        <h3 class="uniform-project-title">School Uniform</h3>
+                        <h3 class="uniform-project-title">Đồng phục học sinh</h3>
                         <p class="uniform-project-desc">
                             Đồng phục học sinh với thiết kế năng động, chất liệu bền và màu sắc tươi sáng.
                         </p>
                         <div class="uniform-project-tags">
-                            <span class="uniform-project-tag">Education</span>
-                            <span class="uniform-project-tag">Youth</span>
-                            <span class="uniform-project-tag">Durable</span>
+                            <span class="uniform-project-tag">Giáo dục</span>
+                            <span class="uniform-project-tag">Năng động</span>
+                            <span class="uniform-project-tag">Bền bỉ</span>
                         </div>
                     </div>
                 </div>
@@ -1406,14 +1481,14 @@
                 <div class="uniform-project-card reveal">
                     <div class="uniform-project-image">⚽</div>
                     <div class="uniform-project-content">
-                        <h3 class="uniform-project-title">Sports Team Uniform</h3>
+                        <h3 class="uniform-project-title">Đồng phục thể thao</h3>
                         <p class="uniform-project-desc">
                             Đồng phục thể thao chuyên nghiệp cho đội bóng, tối ưu cho hiệu suất và nhận diện đội.
                         </p>
                         <div class="uniform-project-tags">
-                            <span class="uniform-project-tag">Sports</span>
-                            <span class="uniform-project-tag">Team</span>
-                            <span class="uniform-project-tag">Performance</span>
+                            <span class="uniform-project-tag">Thể thao</span>
+                            <span class="uniform-project-tag">Đội nhóm</span>
+                            <span class="uniform-project-tag">Hiệu suất</span>
                         </div>
                     </div>
                 </div>
@@ -1421,14 +1496,14 @@
                 <div class="uniform-project-card reveal">
                     <div class="uniform-project-image">🎪</div>
                     <div class="uniform-project-content">
-                        <h3 class="uniform-project-title">Event Staff Uniform</h3>
+                        <h3 class="uniform-project-title">Đồng phục sự kiện</h3>
                         <p class="uniform-project-desc">
                             Đồng phục nhân viên sự kiện, thiết kế nổi bật để dễ nhận diện, thoải mái cho hoạt động suốt ngày dài.
                         </p>
                         <div class="uniform-project-tags">
-                            <span class="uniform-project-tag">Events</span>
-                            <span class="uniform-project-tag">Staff</span>
-                            <span class="uniform-project-tag">Branding</span>
+                            <span class="uniform-project-tag">Sự kiện</span>
+                            <span class="uniform-project-tag">Nhân sự</span>
+                            <span class="uniform-project-tag">Xây dựng thương hiệu</span>
                         </div>
                     </div>
                 </div>
@@ -1436,14 +1511,14 @@
         </div>
     </section>
 
-    <!-- UI/UX Projects Section -->
+    <!-- Dự án UI/UX -->
     <section id="ui" class="dark-section reveal">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">UI/UX Design</div>
+                <div class="section-label">Thiết kế UI/UX</div>
                 <h2 class="section-title">Dự án thiết kế giao diện</h2>
                 <p class="section-description">
-                    Những dự án UI/UX design kết hợp với frontend development tạo ra trải nghiệm người dùng xuất sắc.
+                    Những dự án thiết kế giao diện UI/UX kết hợp với phát triển frontend tạo ra trải nghiệm người dùng xuất sắc.
                 </p>
             </div>
 
@@ -1451,13 +1526,13 @@
                 <div class="ui-project-card reveal">
                     <div class="ui-project-image">🛒</div>
                     <div class="ui-project-content">
-                        <div class="ui-project-title">E-Commerce Platform</div>
+                        <div class="ui-project-title">Nền tảng thương mại điện tử</div>
                         <div class="ui-project-desc">
                             Nền tảng thương mại điện tử với UX tối ưu cho conversion rate cao, thiết kế responsive và trải nghiệm mua sắm mượt mà.
                         </div>
                         <div class="ui-project-tags">
-                            <span class="ui-project-tag">UI Design</span>
-                            <span class="ui-project-tag">E-commerce</span>
+                            <span class="ui-project-tag">Thiết kế UI</span>
+                            <span class="ui-project-tag">Thương mại điện tử</span>
                             <span class="ui-project-tag">React</span>
                         </div>
                     </div>
@@ -1466,14 +1541,14 @@
                 <div class="ui-project-card reveal">
                     <div class="ui-project-image">📱</div>
                     <div class="ui-project-content">
-                        <div class="ui-project-title">Mobile Banking App</div>
+                        <div class="ui-project-title">Ứng dụng ngân hàng di động</div>
                         <div class="ui-project-desc">
                             Ứng dụng ngân hàng di động với giao diện an toàn, dễ sử dụng và trải nghiệm người dùng vượt trội trong lĩnh vực fintech.
                         </div>
                         <div class="ui-project-tags">
-                            <span class="ui-project-tag">Mobile UI</span>
-                            <span class="ui-project-tag">Fintech</span>
-                            <span class="ui-project-tag">Security</span>
+                            <span class="ui-project-tag">Giao diện di động</span>
+                            <span class="ui-project-tag">Công nghệ tài chính</span>
+                            <span class="ui-project-tag">Bảo mật</span>
                         </div>
                     </div>
                 </div>
@@ -1481,14 +1556,14 @@
                 <div class="ui-project-card reveal">
                     <div class="ui-project-image">👔</div>
                     <div class="ui-project-content">
-                        <div class="ui-project-title">Corporate Uniform Design System</div>
+                        <div class="ui-project-title">Hệ thống thiết kế đồng phục doanh nghiệp</div>
                         <div class="ui-project-desc">
                             Hệ thống thiết kế đồng phục doanh nghiệp toàn diện, từ concept đến production, đảm bảo tính nhất quán và chuyên nghiệp.
                         </div>
                         <div class="ui-project-tags">
-                            <span class="ui-project-tag">Uniform Design</span>
-                            <span class="ui-project-tag">Corporate</span>
-                            <span class="ui-project-tag">Branding</span>
+                            <span class="ui-project-tag">Thiết kế đồng phục</span>
+                            <span class="ui-project-tag">Doanh nghiệp</span>
+                            <span class="ui-project-tag">Xây dựng thương hiệu</span>
                         </div>
                     </div>
                 </div>
@@ -1496,14 +1571,14 @@
                 <div class="ui-project-card reveal">
                     <div class="ui-project-image">🎨</div>
                     <div class="ui-project-content">
-                        <div class="ui-project-title">Adobe Illustrator Brand Identity</div>
+                        <div class="ui-project-title">Nhận diện thương hiệu Illustrator</div>
                         <div class="ui-project-desc">
-                            Thiết kế nhận diện thương hiệu chuyên nghiệp sử dụng Adobe Illustrator, tạo ra logo và visual identity độc đáo cho doanh nghiệp.
+                            Thiết kế nhận diện thương hiệu chuyên nghiệp sử dụng Adobe Illustrator, tạo ra logo và bộ nhận diện trực quan độc đáo cho doanh nghiệp.
                         </div>
                         <div class="ui-project-tags">
                             <span class="ui-project-tag">Illustrator</span>
-                            <span class="ui-project-tag">Branding</span>
-                            <span class="ui-project-tag">Logo Design</span>
+                            <span class="ui-project-tag">Xây dựng thương hiệu</span>
+                            <span class="ui-project-tag">Thiết kế logo</span>
                         </div>
                     </div>
                 </div>
@@ -1511,14 +1586,14 @@
                 <div class="ui-project-card reveal">
                     <div class="ui-project-image">🖼️</div>
                     <div class="ui-project-content">
-                        <div class="ui-project-title">Adobe Photoshop Fashion Mockups</div>
+                        <div class="ui-project-title">Mô phỏng thời trang Photoshop</div>
                         <div class="ui-project-desc">
-                            Mockup thời trang cao cấp sử dụng Adobe Photoshop, tạo ra hình ảnh sản phẩm chuyên nghiệp cho các bộ sưu tập thời trang.
+                            Mô phỏng thời trang cao cấp sử dụng Adobe Photoshop, tạo ra hình ảnh sản phẩm chuyên nghiệp cho các bộ sưu tập thời trang.
                         </div>
                         <div class="ui-project-tags">
                             <span class="ui-project-tag">Photoshop</span>
-                            <span class="ui-project-tag">Fashion</span>
-                            <span class="ui-project-tag">Mockup</span>
+                            <span class="ui-project-tag">Thời trang</span>
+                            <span class="ui-project-tag">Mô phỏng</span>
                         </div>
                     </div>
                 </div>
@@ -1526,14 +1601,14 @@
                 <div class="ui-project-card reveal">
                     <div class="ui-project-image">📱</div>
                     <div class="ui-project-content">
-                        <div class="ui-project-title">Mobile App UI Design</div>
+                        <div class="ui-project-title">Thiết kế giao diện ứng dụng di động</div>
                         <div class="ui-project-desc">
                             Thiết kế giao diện ứng dụng di động hiện đại với UX/UI tối ưu, tập trung vào trải nghiệm người dùng và tính thẩm mỹ cao.
                         </div>
                         <div class="ui-project-tags">
-                            <span class="ui-project-tag">Mobile UI</span>
-                            <span class="ui-project-tag">UX Design</span>
-                            <span class="ui-project-tag">App Design</span>
+                            <span class="ui-project-tag">Giao diện di động</span>
+                            <span class="ui-project-tag">Thiết kế UX</span>
+                            <span class="ui-project-tag">Thiết kế ứng dụng</span>
                         </div>
                     </div>
                 </div>
@@ -1557,7 +1632,7 @@
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <div class="timeline-year">2024 - Hiện tại</div>
-                            <h3 class="timeline-title">Uniform Designer & UX Developer</h3>
+                            <h3 class="timeline-title">Nhà thiết kế đồng phục & Nhà phát triển UX</h3>
                             <p class="timeline-desc">Thiết kế đồng phục chuyên nghiệp và phát triển giao diện người dùng cho các dự án web/mobile.</p>
                         </div>
                         <div class="timeline-dot"></div>
@@ -1566,7 +1641,7 @@
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <div class="timeline-year">2022 - 2024</div>
-                            <h3 class="timeline-title">Graphic Designer & Frontend Developer</h3>
+                            <h3 class="timeline-title">Nhà thiết kế đồ họa & Nhà phát triển Frontend</h3>
                             <p class="timeline-desc">Làm việc với Adobe Creative Suite và phát triển frontend với React, tạo ra các sản phẩm thiết kế và web chất lượng cao.</p>
                         </div>
                         <div class="timeline-dot"></div>
@@ -1575,7 +1650,7 @@
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <div class="timeline-year">2021 - 2022</div>
-                            <h3 class="timeline-title">UI/UX Designer</h3>
+                            <h3 class="timeline-title">Thiết kế UI/UXer</h3>
                             <p class="timeline-desc">Thiết kế giao diện người dùng cho ứng dụng di động và website, tập trung vào trải nghiệm người dùng và usability.</p>
                         </div>
                         <div class="timeline-dot"></div>
@@ -1584,7 +1659,7 @@
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <div class="timeline-year">2020 - 2021</div>
-                            <h3 class="timeline-title">Junior Graphic Designer</h3>
+                            <h3 class="timeline-title">Chuyên viên thiết kế đồ họa</h3>
                             <p class="timeline-desc">Bắt đầu hành trình thiết kế với việc tạo ra các tài liệu marketing, brochure và nhận diện thương hiệu.</p>
                         </div>
                         <div class="timeline-dot"></div>
@@ -1648,7 +1723,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Phần liên hệ -->
     <section id="contact" class="reveal">
         <div class="container">
             <div class="section-header">
@@ -1691,7 +1766,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Quốc Huy</h3>
-                    <p>Uniform Designer & UX/UI Developer</p>
+                    <p>Nhà thiết kế đồng phục & Nhà phát triển UI/UX</p>
                     <p>Tạo ra những trải nghiệm tuyệt vời thông qua thiết kế và công nghệ.</p>
                 </div>
 
@@ -1701,7 +1776,7 @@
                         <a href="#hero" class="footer-link">Trang chủ</a>
                         <a href="#about" class="footer-link">Giới thiệu</a>
                         <a href="#uniform" class="footer-link">Đồng phục</a>
-                        <a href="#ui" class="footer-link">UI/UX</a>
+                        <a href="#ui" class="footer-link">Thiết kế UI/UX</a>
                         <a href="#contact" class="footer-link">Liên hệ</a>
                     </div>
                 </div>
@@ -1710,9 +1785,9 @@
                     <h3>Kỹ năng</h3>
                     <div class="footer-links">
                         <span class="footer-link">Thiết kế đồng phục</span>
-                        <span class="footer-link">UI/UX Design</span>
-                        <span class="footer-link">Frontend Dev</span>
-                        <span class="footer-link">Graphic Design</span>
+                        <span class="footer-link">Thiết kế UI/UX</span>
+                        <span class="footer-link">Phát triển Frontend</span>
+                        <span class="footer-link">Thiết kế đồ họa</span>
                     </div>
                 </div>
             </div>
@@ -1736,7 +1811,7 @@
 
             init() {
                 // Load saved theme from localStorage
-                const savedTheme = localStorage.getItem('portfolio-theme');
+                const savedTheme = localStorage.getItem('dự án-theme');
                 if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
                     this.currentTheme = savedTheme;
                 }
@@ -1771,7 +1846,7 @@
             }
 
             saveTheme() {
-                localStorage.setItem('portfolio-theme', this.currentTheme);
+                localStorage.setItem('dự án-theme', this.currentTheme);
             }
         }
 
