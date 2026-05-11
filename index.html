@@ -54,7 +54,7 @@
         }
 
         /* Light mode overrides */
-        :root.light-mode {
+        [data-theme="light"] {
             --bg-primary: #ffffff;
             --bg-secondary: #f5f7ff;
             --bg-tertiary: #eef3f7;
@@ -64,6 +64,12 @@
             --text-tertiary: #7a8896;
             --glass-light: rgba(0, 217, 255, 0.05);
             --glass-border: rgba(0, 217, 255, 0.1);
+            --shadow-sm: 0 4px 20px rgba(0, 14, 39, 0.05);
+            --shadow-md: 0 10px 40px rgba(0, 14, 39, 0.08);
+            --shadow-lg: 0 20px 60px rgba(0, 14, 39, 0.12);
+            --glow-cyan: 0 0 20px rgba(0, 217, 255, 0.2);
+            --glow-pink: 0 0 20px rgba(255, 0, 110, 0.2);
+            --glow-gold: 0 0 20px rgba(255, 215, 0, 0.2);
         }
 
         /* ============================================================
@@ -74,6 +80,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         html {
@@ -342,10 +349,20 @@
             transition: all var(--transition-normal);
         }
 
+        [data-theme="light"] header {
+            background: rgba(245, 247, 255, 0.7);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
         header.scrolled {
             padding: 0.8rem 0;
             background: rgba(10, 14, 39, 0.95);
             box-shadow: var(--shadow-md);
+        }
+
+        [data-theme="light"] header.scrolled {
+            background: rgba(245, 247, 255, 0.95);
+            box-shadow: 0 10px 40px rgba(0, 14, 39, 0.08);
         }
 
         nav {
@@ -6076,20 +6093,20 @@
     <script>
         // ========== THEME TOGGLE ========== 
         const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
+        const html = document.documentElement;
 
         // Load saved theme
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        if (savedTheme === 'dark') {
-            body.classList.add('dark-mode');
-            themeToggle.textContent = '☀️';
-        }
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
         themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const isDark = body.classList.contains('dark-mode');
-            themeToggle.textContent = isDark ? '☀️' : '🌙';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            localStorage.setItem('theme', newTheme);
         });
 
         // ========== HEADER SCROLL EFFECT ========== 
@@ -6117,6 +6134,49 @@
                 navLinks.classList.remove('mobile-active');
             });
         });
+
+        // ========== SCROLL REVEAL ANIMATION ==========
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with reveal class
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ========== SMOOTH SCROLL FOR NAV LINKS ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ========== FORM SUBMISSION ==========
+        const contactForm = document.getElementById('contactForm');
+        contactForm?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Cảm ơn bạn đã liên hệ! Tôi sẽ phản hồi sớm nhất có thể.');
+            contactForm.reset();
+        });
+    </script>
 
         // ========== SCROLL ANIMATION ========== 
         const revealElements = document.querySelectorAll('.reveal');
