@@ -470,13 +470,12 @@
            ============================================================ */
 
         .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
+            min-height: calc(100vh - 120px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            justify-items: center;
-            padding: 140px 0 70px;
+            padding: 120px 0 60px;
             position: relative;
             overflow: hidden;
         }
@@ -485,19 +484,21 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 30% 45%, rgba(0, 217, 255, 0.12) 0%, transparent 45%),
-                        radial-gradient(circle at 75% 35%, rgba(255, 215, 0, 0.1) 0%, transparent 35%);
+            background: radial-gradient(circle at 50% 20%, rgba(0, 217, 255, 0.12) 0%, transparent 35%),
+                        radial-gradient(circle at 50% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 30%);
             z-index: -1;
         }
 
         .hero-content {
             display: flex;
             flex-direction: column;
-            gap: 1.8rem;
+            gap: 1.85rem;
             align-items: center;
             text-align: center;
             animation: fadeInUp 1s var(--transition-slow) both;
             opacity: 0;
+            width: min(100%, 860px);
+            padding: 0 1rem;
         }
 
         .hero-subtitle {
@@ -527,13 +528,13 @@
 
         .hero-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3.8rem, 6vw, 6.4rem);
-            line-height: 1.05;
+            font-size: clamp(3.8rem, 6vw, 5.5rem);
+            line-height: 1.02;
             font-weight: 900;
-            letter-spacing: -1.8px;
+            letter-spacing: -1.5px;
             color: var(--text-primary);
-            text-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
-            max-width: 860px;
+            text-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+            max-width: 760px;
         }
 
         .hero-title .highlight {
@@ -551,25 +552,26 @@
             gap: 1rem;
             max-width: 520px;
             width: min(100%, 520px);
-            padding: 1.6rem 1.8rem;
+            padding: 1.8rem 2rem;
             background: var(--glass-light);
             border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            backdrop-filter: blur(16px);
+            border-radius: 36px;
+            backdrop-filter: blur(18px);
             box-shadow: var(--shadow-md);
         }
 
         .avatar-frame {
-            width: 160px;
-            height: 160px;
+            width: clamp(140px, 18vw, 180px);
+            height: clamp(140px, 18vw, 180px);
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 32px;
             position: relative;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.14);
             border: 1px solid rgba(0, 217, 255, 0.18);
+            box-shadow: 0 18px 45px rgba(0, 14, 39, 0.08);
         }
 
         .avatar-frame::before {
@@ -614,10 +616,10 @@
         }
 
         .hero-description {
-            font-size: clamp(1.05rem, 1.2vw, 1.3rem);
+            font-size: clamp(1rem, 1.1vw, 1.28rem);
             color: var(--text-secondary);
             line-height: 1.85;
-            max-width: 700px;
+            max-width: 680px;
             margin: 0 auto;
         }
 
@@ -625,7 +627,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 1.5rem;
-            margin: 1.8rem auto;
+            margin: 1.8rem auto 0;
             width: min(100%, 760px);
         }
 
@@ -654,31 +656,42 @@
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.15rem;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 0.2rem;
+            margin-top: 0.3rem;
         }
 
-        .hero-image {
-            position: relative;
-            animation: fadeInUp 1s calc(var(--transition-slow) + 0.15s) both;
-            overflow: hidden;
-            border-radius: 28px;
-            box-shadow: var(--shadow-xl);
-            max-width: 620px;
-            width: 100%;
+        .hero-socials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.85rem;
+            margin-top: 1rem;
         }
 
-        .hero-image img {
-            width: 100%;
-            max-width: 620px;
-            height: auto;
-            object-fit: cover;
-            display: block;
-            border-radius: 28px;
-            box-shadow: var(--shadow-lg);
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.65rem 1.15rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: all var(--transition-fast);
         }
+
+        .social-link:hover {
+            color: var(--bg-primary);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            border-color: transparent;
+            transform: translateY(-1px);
+            box-shadow: var(--glow-cyan);
+        }
+
 
         /* ============================================================
            SECTIONS
@@ -1195,22 +1208,15 @@
 
         @media (max-width: 1024px) {
             .hero {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
-            }
-
-            .hero-content {
-                align-items: center;
+                padding: 120px 0 60px;
             }
 
             .hero-title {
-                font-size: clamp(3rem, 6vw, 4.2rem);
+                font-size: clamp(3.2rem, 6vw, 4.5rem);
             }
 
             .hero-profile {
-                justify-content: center;
-                flex-wrap: wrap;
+                width: min(100%, 540px);
             }
 
             .section-title {
@@ -1224,16 +1230,15 @@
             }
 
             .hero {
-                padding: 120px 0 60px;
+                padding: 100px 0 50px;
             }
 
             .hero-title {
-                font-size: clamp(2.8rem, 7vw, 3.6rem);
+                font-size: clamp(2.6rem, 8vw, 3.4rem);
             }
 
             .hero-profile {
-                flex-direction: column;
-                gap: 1rem;
+                width: min(100%, 100%);
             }
 
             .profile-details {
@@ -1296,20 +1301,30 @@
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 1.8rem;
+                font-size: clamp(2rem, 10vw, 2.8rem);
+            }
+
+            .hero-subtitle {
+                font-size: 0.86rem;
+                padding: 0.7rem 1rem;
             }
 
             .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, minmax(120px, 1fr));
             }
 
             .hero-buttons {
                 flex-direction: column;
+                width: 100%;
             }
 
             .hero-buttons .btn {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .hero-socials {
+                width: 100%;
             }
         }
     </style>
@@ -1362,16 +1377,23 @@
                         <div class="profile-role">Nhà thiết kế đồng phục & Nhà phát triển UI/UX</div>
                     </div>
                 </div>
-                <div class="hero-subtitle">
-                    <span>Nhà thiết kế đồng phục & Nhà phát triển UI/UX</span>
-                </div>
+                <div class="hero-subtitle">Premium personal brand · UI/UX & Đồng phục cao cấp</div>
                 <h1 class="hero-title">
-                    Thiết kế <span class="highlight">đồng phục</span> chuyên nghiệp<br>
-                    Phát triển giao diện người dùng hiện đại
+                    Thiết kế đồng phục cao cấp<br>
+                    Kết nối trải nghiệm UI/UX tinh tế
                 </h1>
                 <p class="hero-description">
-                    Tôi là Trương Quốc Huy, có 1 năm kinh nghiệm trong lĩnh vực thiết kế, chuyên về thiết kế đồng phục và phát triển giao diện UI/UX hiện đại, mang đến giải pháp sáng tạo và trải nghiệm người dùng hiệu quả.
+                    Tôi tạo ra hình ảnh thương hiệu và giao diện số sang trọng, giúp doanh nghiệp chạm đến cảm nhận cao cấp.
                 </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Liên hệ ngay</a>
+                    <a href="#uniform" class="btn btn-secondary">Xem dự án</a>
+                </div>
+                <div class="hero-socials">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Behance</a>
+                    <a href="#" class="social-link">Instagram</a>
+                </div>
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number">50+</span>
@@ -1389,10 +1411,6 @@
                         <span class="stat-number">24/7</span>
                         <span class="stat-label">Hỗ trợ</span>
                     </div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn">Liên hệ ngay</a>
-                    <a href="#uniform" class="btn btn-secondary">Xem dự án</a>
                 </div>
             </div>
         </div>
