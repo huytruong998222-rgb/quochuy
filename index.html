@@ -484,21 +484,47 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 50% 20%, rgba(0, 217, 255, 0.12) 0%, transparent 35%),
-                        radial-gradient(circle at 50% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 30%);
+            background: radial-gradient(circle at 25% 20%, rgba(0, 217, 255, 0.12) 0%, transparent 40%),
+                        radial-gradient(circle at 75% 35%, rgba(255, 215, 0, 0.08) 0%, transparent 28%);
             z-index: -1;
         }
 
         .hero-content {
             display: flex;
-            flex-direction: column;
-            gap: 1.85rem;
+            flex-direction: row;
+            gap: 3.5rem;
             align-items: center;
-            text-align: center;
+            justify-content: space-between;
             animation: fadeInUp 1s var(--transition-slow) both;
             opacity: 0;
-            width: min(100%, 860px);
+            width: min(100%, 1080px);
             padding: 0 1rem;
+        }
+
+        .hero-copy {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+            align-items: flex-start;
+            text-align: left;
+            flex: 1.2;
+            min-width: 0;
+        }
+
+        .hero-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 360px;
+            width: 100%;
+            padding: 1.8rem 2rem;
+            background: var(--glass-light);
+            border: 1px solid var(--glass-border);
+            border-radius: 36px;
+            backdrop-filter: blur(18px);
+            box-shadow: var(--shadow-md);
         }
 
         .hero-subtitle {
@@ -1211,12 +1237,22 @@
                 padding: 120px 0 60px;
             }
 
+            .hero-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-copy {
+                align-items: center;
+                text-align: center;
+            }
+
             .hero-title {
-                font-size: clamp(3.2rem, 6vw, 4.5rem);
+                font-size: clamp(3rem, 6vw, 4.5rem);
             }
 
             .hero-profile {
-                width: min(100%, 540px);
+                width: min(100%, 480px);
             }
 
             .section-title {
@@ -1368,6 +1404,25 @@
     <section id="hero" class="hero">
         <div class="container">
             <div class="hero-content">
+                <div class="hero-copy">
+                    <div class="hero-subtitle">Premium personal brand · UI/UX & Đồng phục cao cấp</div>
+                    <h1 class="hero-title">
+                        Thiết kế đồng phục cao cấp<br>
+                        Kết nối trải nghiệm UI/UX tinh tế
+                    </h1>
+                    <p class="hero-description">
+                        Tôi tạo ra hình ảnh thương hiệu và giao diện số sang trọng, giúp doanh nghiệp chạm đến cảm nhận cao cấp.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn">Liên hệ ngay</a>
+                        <a href="#uniform" class="btn btn-secondary">Xem dự án</a>
+                    </div>
+                    <div class="hero-socials">
+                        <a href="#" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Behance</a>
+                        <a href="#" class="social-link">Instagram</a>
+                    </div>
+                </div>
                 <div class="hero-profile">
                     <div class="avatar-frame">
                         <img class="avatar-image" src="anhavatar.jpg" alt="Ảnh đại diện Trương Quốc Huy">
@@ -1377,40 +1432,23 @@
                         <div class="profile-role">Nhà thiết kế đồng phục & Nhà phát triển UI/UX</div>
                     </div>
                 </div>
-                <div class="hero-subtitle">Premium personal brand · UI/UX & Đồng phục cao cấp</div>
-                <h1 class="hero-title">
-                    Thiết kế đồng phục cao cấp<br>
-                    Kết nối trải nghiệm UI/UX tinh tế
-                </h1>
-                <p class="hero-description">
-                    Tôi tạo ra hình ảnh thương hiệu và giao diện số sang trọng, giúp doanh nghiệp chạm đến cảm nhận cao cấp.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn">Liên hệ ngay</a>
-                    <a href="#uniform" class="btn btn-secondary">Xem dự án</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Dự án hoàn thành</span>
                 </div>
-                <div class="hero-socials">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Behance</a>
-                    <a href="#" class="social-link">Instagram</a>
+                <div class="stat-item">
+                    <span class="stat-number">1+</span>
+                    <span class="stat-label">Năm kinh nghiệm</span>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Dự án hoàn thành</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">1+</span>
-                        <span class="stat-label">Năm kinh nghiệm</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Hài lòng khách hàng</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Hỗ trợ</span>
-                    </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Hài lòng khách hàng</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Hỗ trợ</span>
                 </div>
             </div>
         </div>
