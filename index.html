@@ -491,127 +491,31 @@
 
         .hero-content {
             display: flex;
-            flex-direction: row;
-            gap: 3.5rem;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 1.8rem;
             animation: fadeInUp 1s var(--transition-slow) both;
             opacity: 0;
-            width: min(100%, 1080px);
+            width: min(100%, 920px);
             padding: 0 1rem;
+            margin: 0 auto;
         }
 
-        .hero-copy {
-            display: flex;
-            flex-direction: column;
-            gap: 1.75rem;
-            align-items: flex-start;
-            text-align: left;
-            flex: 1.2;
-            min-width: 0;
-        }
-
-        .hero-profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            max-width: 360px;
-            width: 100%;
-            padding: 1.8rem 2rem;
-            background: var(--glass-light);
-            border: 1px solid var(--glass-border);
-            border-radius: 36px;
-            backdrop-filter: blur(18px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .hero-subtitle {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            letter-spacing: 1.4px;
-            text-transform: uppercase;
-            background: rgba(0, 217, 255, 0.08);
-            padding: 0.85rem 1.2rem;
-            border-radius: 999px;
-            border: 1px solid rgba(0, 217, 255, 0.16);
-        }
-
-        .hero-subtitle::before {
-            content: '';
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent-cyan);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(3.8rem, 6vw, 5.5rem);
-            line-height: 1.02;
-            font-weight: 900;
-            letter-spacing: -1.5px;
-            color: var(--text-primary);
-            text-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-            max-width: 760px;
-        }
-
-        .hero-title .highlight {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-profile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            max-width: 520px;
-            width: min(100%, 520px);
-            padding: 1.8rem 2rem;
-            background: var(--glass-light);
-            border: 1px solid var(--glass-border);
-            border-radius: 36px;
-            backdrop-filter: blur(18px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .avatar-frame {
-            width: clamp(140px, 18vw, 180px);
-            height: clamp(140px, 18vw, 180px);
+        .hero-avatar {
+            width: clamp(200px, 22vw, 260px);
+            height: clamp(200px, 22vw, 260px);
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 32px;
-            position: relative;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.12);
             border: 1px solid rgba(0, 217, 255, 0.18);
-            box-shadow: 0 18px 45px rgba(0, 14, 39, 0.08);
+            box-shadow: 0 28px 70px rgba(0, 14, 39, 0.12);
         }
 
-        .avatar-frame::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            border-radius: 32px;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.35), rgba(128, 0, 255, 0.35));
-            opacity: 0.28;
-            mix-blend-mode: screen;
-        }
-
-        .avatar-image {
+        .hero-avatar .avatar-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -620,25 +524,39 @@
             z-index: 1;
         }
 
-        .profile-details {
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-        }
-
-        .profile-name {
-            font-size: clamp(1.9rem, 3vw, 2.8rem);
+        .hero-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3.8rem, 5vw, 5.6rem);
+            line-height: 1;
             font-weight: 900;
-            color: var(--text-primary);
-            line-height: 1.05;
+            letter-spacing: -1.5px;
+            color: transparent;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 0.2rem;
         }
 
-        .profile-role {
-            font-size: 0.95rem;
+        .hero-role {
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
             color: var(--text-secondary);
-            letter-spacing: 1px;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
             font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(0.95rem, 1vw, 1.08rem);
+            font-weight: 700;
+            color: var(--accent-cyan);
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            background: rgba(0, 217, 255, 0.08);
+            padding: 0.75rem 1.3rem;
+            border-radius: 999px;
+            border: 1px solid rgba(0, 217, 255, 0.16);
         }
 
         .hero-description {
@@ -1238,21 +1156,25 @@
             }
 
             .hero-content {
-                flex-direction: column;
-                align-items: center;
+                width: min(100%, 780px);
             }
 
-            .hero-copy {
-                align-items: center;
+            .hero-name {
+                font-size: clamp(3.2rem, 7vw, 4.4rem);
+            }
+
+            .hero-role,
+            .hero-subtitle {
                 text-align: center;
             }
 
-            .hero-title {
-                font-size: clamp(3rem, 6vw, 4.5rem);
+            .hero-description {
+                max-width: 100%;
             }
 
-            .hero-profile {
-                width: min(100%, 480px);
+            .hero-avatar {
+                width: clamp(180px, 20vw, 220px);
+                height: clamp(180px, 20vw, 220px);
             }
 
             .section-title {
@@ -1269,17 +1191,26 @@
                 padding: 100px 0 50px;
             }
 
-            .hero-title {
-                font-size: clamp(2.6rem, 8vw, 3.4rem);
+            .hero-name {
+                font-size: clamp(2.8rem, 9vw, 3.8rem);
             }
 
-            .hero-profile {
-                width: min(100%, 100%);
+            .hero-avatar {
+                width: clamp(160px, 24vw, 200px);
+                height: clamp(160px, 24vw, 200px);
             }
 
-            .profile-details {
-                align-items: center;
-                text-align: center;
+            .hero-buttons {
+                width: 100%;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-socials {
+                width: 100%;
             }
 
             .nav-links {
@@ -1336,13 +1267,17 @@
         }
 
         @media (max-width: 480px) {
-            .hero-title {
-                font-size: clamp(2rem, 10vw, 2.8rem);
+            .hero-name {
+                font-size: clamp(2.2rem, 12vw, 3rem);
             }
 
             .hero-subtitle {
-                font-size: 0.86rem;
+                font-size: 0.88rem;
                 padding: 0.7rem 1rem;
+            }
+
+            .hero-description {
+                line-height: 1.85;
             }
 
             .hero-stats {
@@ -1404,33 +1339,23 @@
     <section id="hero" class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-copy">
-                    <div class="hero-subtitle">Premium personal brand · UI/UX & Đồng phục cao cấp</div>
-                    <h1 class="hero-title">
-                        Thiết kế đồng phục cao cấp<br>
-                        Kết nối trải nghiệm UI/UX tinh tế
-                    </h1>
-                    <p class="hero-description">
-                        Tôi tạo ra hình ảnh thương hiệu và giao diện số sang trọng, giúp doanh nghiệp chạm đến cảm nhận cao cấp.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn">Liên hệ ngay</a>
-                        <a href="#uniform" class="btn btn-secondary">Xem dự án</a>
-                    </div>
-                    <div class="hero-socials">
-                        <a href="#" class="social-link">LinkedIn</a>
-                        <a href="#" class="social-link">Behance</a>
-                        <a href="#" class="social-link">Instagram</a>
-                    </div>
+                <div class="hero-avatar">
+                    <img class="avatar-image" src="anhavatar.jpg" alt="Ảnh đại diện Trương Quốc Huy">
                 </div>
-                <div class="hero-profile">
-                    <div class="avatar-frame">
-                        <img class="avatar-image" src="anhavatar.jpg" alt="Ảnh đại diện Trương Quốc Huy">
-                    </div>
-                    <div class="profile-details">
-                        <div class="profile-name">Trương Quốc Huy</div>
-                        <div class="profile-role">Nhà thiết kế đồng phục & Nhà phát triển UI/UX</div>
-                    </div>
+                <h1 class="hero-name">Trương Quốc Huy</h1>
+                <p class="hero-role">Nhà thiết kế đồng phục & Nhà phát triển UI/UX</p>
+                <div class="hero-subtitle">Premium personal brand · UI/UX & Đồng phục cao cấp</div>
+                <p class="hero-description">
+                    Thiết kế hệ thống thương hiệu đồng phục và giao diện số tinh tế, giúp doanh nghiệp thể hiện đẳng cấp chuyên nghiệp.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Liên hệ ngay</a>
+                    <a href="#uniform" class="btn btn-secondary">Xem dự án</a>
+                </div>
+                <div class="hero-socials">
+                    <a href="#" class="social-link">LinkedIn</a>
+                    <a href="#" class="social-link">Behance</a>
+                    <a href="#" class="social-link">Instagram</a>
                 </div>
             </div>
             <div class="hero-stats">
