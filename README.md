@@ -304,4 +304,3 @@ Có gu thẩm mỹ
 Có kỹ năng 
 Có định hướng 
 Khác biệt hơn portfolio học sinh/sinh viên thông thường
-
